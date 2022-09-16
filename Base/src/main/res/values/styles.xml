@@ -1,0 +1,96 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:fontFamily">@font/app_font</item>
+        <item name="editTextColor">@android:color/black</item>
+        <item name="android:windowBackground">@drawable/splash_background</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="colorControlHighlight">@color/colorWhite</item>
+    </style>
+
+
+    <style name="AppTheme.Solid" parent="AppTheme">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimaryDark">@color/home_bg</item>
+        <item name="editTextColor">@color/text_color_normal</item>
+        <item name="android:windowBackground">@color/home_bg</item>
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="colorControlHighlight">@color/colorWhite</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar.Transparent" parent="AppTheme.NoActionBar">
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowHideAnimation">@anim/fade_out</item>
+        <item name="android:windowExitAnimation">@anim/fade_out</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar.Transparent.DimBackground" parent="AppTheme.NoActionBar.Transparent">
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <style name="FullScreenDialogStyle" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowNoTitle">true</item>
+
+        <!-- Set this to true if you want Full Screen without status bar -->
+        <item name="android:windowFullscreen">false</item>
+
+        <item name="android:windowIsFloating">false</item>
+
+        <!-- This is important! Don't forget to set window background -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+
+        <!-- Additionally if you want animations when dialog opening -->
+        <item name="android:windowEnterAnimation">@anim/slide_in_up</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_down</item>
+    </style>
+
+
+    <style name="SimpleButton" parent="@style/Widget.AppCompat.Button.Borderless">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/simple_button_text_clr</item>
+        <item name="android:background">@drawable/simple_button_bg</item>
+        <item name="android:paddingEnd">42dp</item>
+        <item name="android:paddingTop">18dp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:paddingBottom">18dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:paddingStart">42dp</item>
+        <item name="android:letterSpacing">.07</item>
+        <item name="android:fontFamily">@font/sf_ui_regular</item>
+    </style>
+
+    <style name="SimpleButtonOutline" parent="@style/Widget.AppCompat.Button.Borderless">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/simple_button_bg_clr_1</item>
+        <item name="android:background">@drawable/simple_button_outline_bg</item>
+        <item name="android:paddingEnd">42dp</item>
+        <item name="android:paddingTop">18dp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:paddingBottom">18dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:paddingStart">42dp</item>
+        <item name="android:letterSpacing">.07</item>
+        <item name="android:fontFamily">@font/sf_ui_regular</item>
+    </style>
+
+
+</resources>

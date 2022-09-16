@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="android.view.View"/>
+        <variable name="vm" type="incubasys.needcharge.splash.vm.SplashViewModel"/>
+    </data>
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorSplashBg">
+
+        <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="@{vm.showRetryButton ? View.GONE : View.VISIBLE, default = visible}"
+                app:srcCompat="@drawable/avd_anim"/>
+
+        <Button
+                android:id="@+id/bRetry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:onClick="@{()-> vm.checkLogin()}"
+                android:visibility="@{vm.showRetryButton ? View.VISIBLE : View.GONE, default = gone}"
+                style="@style/SimpleButton"
+                android:text="@string/retry"/>
+
+    </FrameLayout>
+
+</layout>

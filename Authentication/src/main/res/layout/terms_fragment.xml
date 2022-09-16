@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="incubasys.needcharge.authentication.data.TermsType" />
+
+        <variable
+            name="vm"
+            type="incubasys.needcharge.authentication.vm.TermsViewModel" />
+
+        <variable
+            name="callback"
+            type="incubasys.needcharge.authentication.callback.TermsViewCallback" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="16dp"
+        android:background="@drawable/dialog_fragment_bg">
+
+        <ImageView
+            android:id="@+id/ivCLose"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="?selectableItemBackground"
+            android:contentDescription="@string/close_icon"
+            android:onClick="@{() -> callback.onCloseButtonClicked()}"
+            android:padding="19dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_close_bold" />
+
+
+        <ImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="83dp"
+            android:layout_height="83dp"
+            android:layout_marginTop="25dp"
+            android:background="?selectableItemBackground"
+            android:contentDescription="@string/logo"
+            android:tint="@color/colorWhite"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_logo" />
+
+
+        <TextView
+            android:id="@+id/tvWelcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:fontFamily="@font/sf_ui_regular"
+            android:text="@{vm.type == TermsType.TERMS ? @string/terms_and_conditions : @string/privacy_policy}"
+            android:textColor="@color/colorPrimary"
+            android:textSize="21sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivLogo"
+            tools:text="@string/terms_and_conditions" />
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:padding="25dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvWelcome">
+
+            <TextView
+                android:id="@+id/tvTermsText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:fontFamily="@font/sf_ui_regular"
+                android:scrollbars="vertical"
+                android:text="@{vm.content}"
+                android:textColor="#F5CBCBCB"
+                android:textSize="13sp"
+                tools:text="@string/terms_and_conditions_text" />
+        </ScrollView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

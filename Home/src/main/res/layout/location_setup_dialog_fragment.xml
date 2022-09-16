@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="callback"
+            type="incubasys.needcharge.home.callback.PermissionDialogCallback" />
+
+        <variable
+            name="vm"
+            type="incubasys.needcharge.home.vm.PermissionViewModel" />
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/rlContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@drawable/presistant_sheet_bg"
+        android:padding="16dp">
+
+        <Button
+            android:id="@+id/bNegativeButton"
+            style="@style/SimpleButtonOutline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/bPositiveButton"
+            android:layout_centerHorizontal="true"
+            android:onClick="@{()->callback.onNegativeButtonClicked()}"
+            android:text="@string/cancel" />
+
+        <Button
+            android:id="@+id/bPositiveButton"
+            style="@style/SimpleButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvMessage"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="16dp"
+            android:onClick="@{()->callback.onPositiveButtonClicked()}"
+            android:text="@{vm.positiveButtonText}"
+            tools:text="@string/turn_on_location" />
+
+        <TextView
+            android:id="@+id/tvMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sf_ui_light"
+            android:padding="16dp"
+            android:text="@{vm.message}"
+            android:textColor="@color/text_label_clr_on_home_bg"
+            android:textSize="18sp"
+            tools:text="@string/_please_turn_on_your_location_from_settings" />
+
+    </RelativeLayout>
+</layout>

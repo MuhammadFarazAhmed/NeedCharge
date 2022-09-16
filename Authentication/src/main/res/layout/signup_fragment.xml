@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="incubasys.needcharge.authentication.data.AuthType" />
+
+        <variable
+            name="vm"
+            type="incubasys.needcharge.authentication.vm.SignupViewModel" />
+
+        <variable
+            name="callback"
+            type="incubasys.needcharge.authentication.callback.SignupViewCallback" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="16dp"
+        android:background="@drawable/dialog_fragment_bg">
+
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:onClick="@{() -> callback.onBackPressed()}"
+            android:background="?selectableItemBackground"
+            android:contentDescription="@string/close_icon"
+            android:padding="19dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back_icon" />
+
+
+        <ImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="78dp"
+            android:layout_height="78dp"
+            android:layout_marginEnd="8dp"
+            android:background="?selectableItemBackground"
+            android:contentDescription="@string/logo"
+            android:tint="@color/colorWhite"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivBack"
+            app:srcCompat="@drawable/ic_logo" />
+
+
+        <TextView
+            android:id="@+id/tvWelcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:fontFamily="@font/sf_ui_regular"
+            android:text="@{vm.signupType == AuthType.EMAIL ?  @string/sign_up_with_your_email : @string/sign_up_with_your_phone  }"
+            android:textColor="@color/colorPrimary"
+            android:textSize="21sp"
+            tools:text="@string/sign_up_with_your_email"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivLogo" />
+
+
+        <EditText
+            android:id="@+id/etFullName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="25dp"
+            errorMessage="@{vm.fulName.error}"
+            android:text="@={vm.fulName.value}"
+            android:background="@drawable/edit_text_bg"
+            android:drawableStart="@drawable/ic_profile"
+            android:drawablePadding="9dp"
+            android:fontFamily="@font/sf_ui_light"
+            android:hint="@string/full_name"
+            android:imeOptions="actionNext"
+            android:inputType="textCapWords"
+            android:lines="1"
+            android:maxLines="1"
+            android:padding="15dp"
+            android:textColor="@color/text_color_normal"
+            android:textColorHint="@color/text_color_hint"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvWelcome"
+            tools:ignore="TextFields" />
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="25dp"
+            errorMessage="@{vm.email.error}"
+            android:text="@={vm.email.value}"
+            android:background="@drawable/edit_text_bg"
+            android:drawableStart="@drawable/ic_email_icon"
+            android:drawablePadding="9dp"
+            android:fontFamily="@font/sf_ui_light"
+            android:hint="@string/email"
+            android:imeOptions="actionDone"
+            android:inputType="textEmailAddress"
+            android:lines="1"
+            android:maxLines="1"
+            android:padding="15dp"
+            android:textColor="@color/text_color_normal"
+            android:textColorHint="@color/text_color_hint"
+            android:textSize="17sp"
+            android:visibility="@{vm.signupType == AuthType.EMAIL ? View.VISIBLE : View.GONE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etFullName"
+            tools:ignore="TextFields" />
+
+        <com.santalu.maskedittext.MaskEditText
+            android:id="@+id/etPhone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/edit_text_bg"
+            errorMessage="@{vm.phone.error}"
+            android:text="@={vm.phone.value}"
+            android:drawableStart="@drawable/ic_phone"
+            android:drawablePadding="9dp"
+            android:fontFamily="@font/sf_ui_light"
+            android:hint="@string/phone_hint"
+            android:imeOptions="actionDone"
+            android:inputType="phone"
+            android:lines="1"
+            android:visibility="@{vm.signupType == AuthType.PHONE ? View.VISIBLE : View.GONE}"
+            android:maxLines="1"
+            android:padding="15dp"
+            android:textColor="@color/text_color_normal"
+            android:textColorHint="@color/text_color_hint"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etEmail"
+            app:met_mask="+## | ### #### ###"
+            tools:ignore="TextFields" />
+
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/edit_text_bg"
+            errorMessage="@{vm.password.error}"
+            android:text="@={vm.password.value}"
+            android:drawableStart="@drawable/ic_password_icon"
+            android:drawableEnd="@drawable/ic_preview"
+            android:drawablePadding="9dp"
+            android:fontFamily="@font/sf_ui_light"
+            android:hint="@string/create_a_password"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"
+            android:lines="1"
+            android:visibility="@{vm.signupType == AuthType.EMAIL ? View.VISIBLE : View.GONE}"
+            android:maxLines="1"
+            android:padding="15dp"
+            android:textColor="@color/text_color_normal"
+            android:textColorHint="@color/text_color_hint"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etPhone"
+            tools:ignore="TextFields" />
+
+
+        <Button
+            android:id="@+id/bSignup"
+            style="@style/SimpleButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="25dp"
+            android:enabled="@{vm.form.valid}"
+            android:fontFamily="@font/sf_ui_light"
+            android:onClick="@{() -> callback.onSignupClicked()}"
+            android:paddingStart="3dp"
+            android:paddingEnd="3dp"
+            android:text="@string/sign_up"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etPassword" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

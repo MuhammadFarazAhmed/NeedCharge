@@ -1,0 +1,46 @@
+<resources>
+    <string name="welcome_to_need_charge">Welcome to Need Charge.</string>
+    <string name="sign_up_with_your_email_or_facebook">Sign up with your email or Facebook</string>
+    <string name="facebook_button">facebook button</string>
+
+    <string name="already_have_an_account_nlogin_with">Already have an account?\n Login with</string>
+    <string name="by_signing_up_i_confirm_that_i_agree_with_n_terms_and_policy_uses">By signing up, I confirm that I agree with\nTerms and Policy uses</string>
+    <string name="or_sign_up_with_your_phone">or sign up with your phone</string>
+    <string name="sign_up_with_your_email">Sign up with your email</string>
+    <string name="sign_up_with_your_phone">Sign up with your phone</string>
+    <string name="sign_up">Sign up</string>
+    <string name="create_a_password">Create a password</string>
+    <string name="welcome_back">Welcome Back</string>
+    <string name="login">Login</string>
+    <string name="forgot_your_password">Forgot your password?</string>
+    <string name="code_verification">Code Verification</string>
+    <string name="code">Code</string>
+    <string name="we_have_sent_you_a_sms_with_a_code_to_the_number">We have sent you a SMS with a code to the number: %1$s</string>
+    <string name="resend">Resend Code</string>
+    <string name="next">Next</string>
+    <string name="continue_">Continue</string>
+    <string name="phone_number_has_been_verified">Your Phone number has been verified</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="terms_and_conditions">Terms and Conditions</string>
+    <string name="privacy_policy_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum, sem id aliquet sollicitudin, dolor lorem tempus quam, vel maximus dolor magna vel eros. Etiam malesuada nisl sed felis auctor blandit. Mauris faucibus ultricies diam. Etiam rhoncus, odio nec tempor consequat, lacus urna finibus mauris, id sagittis ipsum velit id mi. Praesent a gravida dui. Donec tempor libero lobortis bibendum vulputate. Duis porttitor nunc vitae suscipit faucibus. Cras imperdiet eu velit quis euismod. Fusce viverra est vel dolor ornare, vehicula venenatis dolor molestie. Phasellus a tellus condimentum, eleifend ante id, varius odio. Sed vel enim ut dolor porta maximus. Mauris hendrerit placerat turpis. Morbi iaculis ante ut ipsum porta, nec feugiat dui convallis. Ut tristique sagittis nunc sed molestie. Quisque vel dictum ligula.
+
+Ut sem est, cursus et ipsum vel, ultricies lobortis ipsum. Donec facilisis tincidunt mollis. Suspendisse aliquet ornare ligula ac placerat. Suspendisse ullamcorper bibendum metus, eu molestie mauris. Nulla nec mi auctor, gravida nunc sed, interdum purus. Nam et egestas neque, et luctus turpis. Fusce posuere urna est, suscipit vulputate elit pharetra eget. Nulla volutpat libero eget sagittis elementum. Donec finibus interdum pharetra. Aenean neque lacus, dignissim et sem et, pharetra dapibus velit.
+
+Fusce lobortis in dui quis tempus. Mauris cursus nunc et viverra ultrices. Nunc id pellentesque ipsum, eu feugiat ipsum. Quisque pulvinar ante quis velit laoreet, sit amet vestibulum turpis mollis. Cras pellentesque felis vitae risus aliquet, a imperdiet turpis viverra. Sed a gravida mi. Maecenas tristique non ipsum ut feugiat. Cras lacus enim, consectetur quis malesuada sed, consequat id libero. Phasellus porttitor tellus sit amet gravida molestie. Integer mattis neque vel massa cursus, quis porta enim luctus. Aliquam aliquet est ante, vel feugiat sem volutpat ac. Praesent quis dignissim tellus, quis venenatis nibh. Phasellus quis tellus eu urna tincidunt congue.</string>
+    <string name="terms_and_conditions_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum, sem id aliquet sollicitudin, dolor lorem tempus quam, vel maximus dolor magna vel eros. Etiam malesuada nisl sed felis auctor blandit. Mauris faucibus ultricies diam. Etiam rhoncus, odio nec tempor consequat, lacus urna finibus mauris, id sagittis ipsum velit id mi. Praesent a gravida dui. Donec tempor libero lobortis bibendum vulputate. Duis porttitor nunc vitae suscipit faucibus. Cras imperdiet eu velit quis euismod. Fusce viverra est vel dolor ornare, vehicula venenatis dolor molestie. Phasellus a tellus condimentum, eleifend ante id, varius odio. Sed vel enim ut dolor porta maximus. Mauris hendrerit placerat turpis. Morbi iaculis ante ut ipsum porta, nec feugiat dui convallis. Ut tristique sagittis nunc sed molestie. Quisque vel dictum ligula.
+
+Ut sem est, cursus et ipsum vel, ultricies lobortis ipsum. Donec facilisis tincidunt mollis. Suspendisse aliquet ornare ligula ac placerat. Suspendisse ullamcorper bibendum metus, eu molestie mauris. Nulla nec mi auctor, gravida nunc sed, interdum purus. Nam et egestas neque, et luctus turpis. Fusce posuere urna est, suscipit vulputate elit pharetra eget. Nulla volutpat libero eget sagittis elementum. Donec finibus interdum pharetra. Aenean neque lacus, dignissim et sem et, pharetra dapibus velit.
+
+Fusce lobortis in dui quis tempus. Mauris cursus nunc et viverra ultrices. Nunc id pellentesque ipsum, eu feugiat ipsum. Quisque pulvinar ante quis velit laoreet, sit amet vestibulum turpis mollis. Cras pellentesque felis vitae risus aliquet, a imperdiet turpis viverra. Sed a gravida mi. Maecenas tristique non ipsum ut feugiat. Cras lacus enim, consectetur quis malesuada sed, consequat id libero. Phasellus porttitor tellus sit amet gravida molestie. Integer mattis neque vel massa cursus, quis porta enim luctus. Aliquam aliquet est ante, vel feugiat sem volutpat ac. Praesent quis dignissim tellus, quis venenatis nibh. Phasellus quis tellus eu urna tincidunt congue.</string>
+    <string name="no_problem_give_us_your_email_and_we_will_send_you_instructions_on_how_to_reset_your_password">No problem, give us your email and we will send you instructions on how to reset your password.</string>
+    <string name="send">send</string>
+    <string name="thanks_email_sent_to_reset_password">Thanks! An email with the reset password link has been sent to you.</string>
+
+
+    <string name="facebook_app_id">2391912734165920</string>
+    <string name="fb_login_protocol_scheme">fb2391912734165920</string>
+    <string name="change_password">Change password</string>
+    <string name="welcome_back_let_s_create_your_new_password">Welcome back! Let’s create your new password</string>
+    <string name="your_new_password">Your new password</string>
+    <string name="confirm_new_password">Confirm new password</string>
+</resources>

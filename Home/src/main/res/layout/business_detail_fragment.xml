@@ -1,0 +1,290 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="incubasys.needcharge.base.RoundedCornersTransformation" />
+
+        <variable
+            name="vm"
+            type="incubasys.needcharge.home.vm.HomeViewModel" />
+
+        <variable
+            name="callback"
+            type="incubasys.needcharge.home.callback.BusinessDetailViewCallback" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@drawable/dialog_fragment_bg">
+<!--
+
+            <ImageView
+                android:id="@+id/ivBussinessDetailImage"
+                cornerType="@{RoundedCornersTransformation.CornerType.ALL}"
+                isRoundCorners="@{true}"
+                placeholderRes="@{@drawable/venue_small_image_placeholder}"
+                android:layout_width="0dp"
+                android:layout_height="230dp"
+                android:layout_margin="20dp"
+                android:contentDescription="@string/image"
+                android:src="@{vm.venueItem.image}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/temp" />
+
+            <ImageView
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:contentDescription="@string/image"
+                android:padding="17dp"
+                android:src="@drawable/ic_close_bold"
+                app:layout_constraintEnd_toEndOf="@+id/ivBussinessDetailImage"
+                app:layout_constraintTop_toTopOf="@+id/ivBussinessDetailImage" />
+
+            <TextView
+                android:id="@+id/tvBussinessDetailTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/sf_ui_bold"
+                android:lineSpacingMultiplier="2.11"
+                android:lines="1"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="Chin Chin"
+                android:textColor="@color/text_label_clr_on_home_bg"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@+id/ivBussinessDetailCallImage"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/ivBussinessDetailImage"
+                app:layout_constraintTop_toBottomOf="@+id/ivBussinessDetailImage"
+                app:layout_goneMarginStart="16dp" />
+
+            <ImageView
+                android:id="@+id/ivBussinessDetailCallImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/circle_open_bg"
+                android:contentDescription="@string/image"
+                android:onClick="@{()->callback.onPhoneIconClicked()}"
+                android:padding="16dp"
+                android:src="@drawable/phone"
+                app:layout_constraintEnd_toEndOf="@+id/ivBussinessDetailImage"
+                app:layout_constraintTop_toBottomOf="@+id/ivBussinessDetailImage" />
+
+            <TextView
+                android:id="@+id/tvBussinessDetailStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@{vm.venueItem.isOpen ? @drawable/open_bg : @drawable/close_bg}"
+                android:fontFamily="@font/sf_ui_bold"
+                android:paddingStart="12dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="12dp"
+                android:paddingBottom="3dp"
+                android:text="@{vm.venueItem.isOpen ? @string/open : @string/closed}"
+                android:textAllCaps="true"
+                android:textColor="@{vm.venueItem.isOpen ? @color/open_green : @color/close_red}"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@+id/tvBussinessDetailTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvBussinessDetailTitle"
+                tools:background="@drawable/open_bg"
+                tools:text="Open"
+                tools:textColor="@color/open_green" />
+
+            <TextView
+                android:id="@+id/tvBusinessDetailStatusSecondartText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@{vm.venueItem.todayTiming}"
+                android:textColor="@color/text_label_clr_on_home_bg"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvBussinessDetailStatus"
+                app:layout_constraintStart_toEndOf="@+id/tvBussinessDetailStatus"
+                app:layout_constraintTop_toBottomOf="@+id/tvBussinessDetailTitle"
+                tools:text="Until 11 pm TODAY" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="16dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:contentDescription="@string/image"
+                android:padding="4dp"
+                android:src="@drawable/ic_arrow_down"
+                app:layout_constraintBottom_toBottomOf="@+id/tvBusinessDetailStatusSecondartText"
+                app:layout_constraintEnd_toStartOf="@+id/ivBussinessDetailCallImage"
+                app:layout_constraintHorizontal_bias="0.3"
+                app:layout_constraintStart_toEndOf="@+id/tvBusinessDetailStatusSecondartText"
+                app:layout_constraintTop_toTopOf="@+id/tvBusinessDetailStatusSecondartText" />
+
+            <LinearLayout
+                android:id="@+id/llBusinessTimings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="26dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="26dp"
+                android:orientation="vertical"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvBussinessDetailStatus">
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/text_label_clr_on_home_bg" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvBusinessDetailTimings"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp" />
+
+                <View
+                    android:id="@+id/view2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/text_label_clr_on_home_bg" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvBusinessDetailBusinessType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/sf_ui_medium"
+                android:includeFontPadding="false"
+                android:text="Restuarant"
+                android:textColor="@color/text_label_clr_on_home_bg"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@+id/llBusinessTimings"
+                app:layout_constraintTop_toBottomOf="@+id/llBusinessTimings" />
+
+            <ImageView
+                android:id="@+id/ivDistanceImage"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_marginStart="8dp"
+                android:contentDescription="@string/image"
+                android:src="@drawable/ic_current_location"
+                android:tint="@color/text_label_clr_on_home_bg"
+                app:layout_constraintBottom_toBottomOf="@+id/tvBusinessDetailBusinessType"
+                app:layout_constraintStart_toEndOf="@+id/tvBusinessDetailBusinessType"
+                app:layout_constraintTop_toTopOf="@+id/tvBusinessDetailBusinessType" />
+
+            <TextView
+                android:id="@+id/tvBusinessDetailDistance"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:fontFamily="@font/sf_ui_medium"
+                android:text="@{@string/km_with_value(vm.venueItem.distance)}"
+                android:textColor="@color/text_label_clr_on_home_bg"
+                app:layout_constraintBottom_toBottomOf="@+id/tvBusinessDetailBusinessType"
+                app:layout_constraintStart_toEndOf="@+id/ivDistanceImage"
+                app:layout_constraintTop_toTopOf="@+id/tvBusinessDetailBusinessType"
+                tools:text="0.22km" />
+
+            <ImageView
+                android:id="@+id/ivWalkingDistanceImage"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="8dp"
+                android:contentDescription="@string/image"
+                android:src="@drawable/ic_directions_run_black_24dp"
+                android:tint="@color/text_label_clr_on_home_bg"
+                app:layout_constraintBottom_toBottomOf="@+id/tvBusinessDetailDistance"
+                app:layout_constraintStart_toEndOf="@+id/tvBusinessDetailDistance"
+                app:layout_constraintTop_toTopOf="@+id/tvBusinessDetailDistance" />
+
+            <TextView
+                android:id="@+id/tvBusinessDetailWalkingDistance"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:fontFamily="@font/sf_ui_medium"
+                android:text="@{@plurals/duration(((int)vm.venueItem.duration), vm.venueItem.duration)}"
+                android:textColor="@color/text_label_clr_on_home_bg"
+                app:layout_constraintBottom_toBottomOf="@+id/ivWalkingDistanceImage"
+                app:layout_constraintStart_toEndOf="@+id/ivWalkingDistanceImage"
+                app:layout_constraintTop_toTopOf="@+id/ivWalkingDistanceImage"
+                tools:text="5 mints" />
+
+            <TextView
+                android:id="@+id/tvBusinessDetailAnemitiesLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/sf_ui_medium"
+                android:text="@string/amenities"
+                android:textAllCaps="true"
+                android:textColor="@color/text_label_clr_on_home_bg"
+                app:layout_constraintEnd_toEndOf="@+id/ivBussinessDetailCallImage"
+                app:layout_constraintStart_toStartOf="@+id/tvBusinessDetailBusinessType"
+                app:layout_constraintTop_toBottomOf="@+id/tvBusinessDetailBusinessType" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvAmenities"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="@+id/tvBusinessDetailAnemitiesLabel"
+                app:layout_constraintStart_toStartOf="@+id/tvBusinessDetailAnemitiesLabel"
+                app:layout_constraintTop_toBottomOf="@+id/tvBusinessDetailAnemitiesLabel" />
+
+            <fragment
+                android:id="@+id/static_map"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="0dp"
+                android:layout_height="230dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/venue_small_image_placeholder"
+                app:layout_constraintEnd_toEndOf="@+id/rvAmenities"
+                app:layout_constraintStart_toStartOf="@+id/rvAmenities"
+                app:layout_constraintTop_toBottomOf="@+id/rvAmenities" />
+
+            <Button
+                android:id="@+id/bChargeHere"
+                style="@style/SimpleButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/sf_ui_light"
+                android:onClick="@{()->callback.onChargeHereIconClicked()}"
+                android:text="@string/charge_here"
+                app:layout_constraintEnd_toEndOf="@+id/static_map"
+                app:layout_constraintStart_toStartOf="@+id/static_map"
+                app:layout_constraintTop_toBottomOf="@+id/static_map" />
+-->
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</layout>

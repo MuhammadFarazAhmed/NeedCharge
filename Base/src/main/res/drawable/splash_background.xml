@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:opacity="opaque">
+    <!-- The background color, preferably the same as your normal theme -->
+    <item android:drawable="@color/colorSplashBg" />
+
+    <item>
+        <bitmap
+            android:gravity="center_horizontal|center_vertical"
+            android:tint="@color/logo_init_clr"
+            android:src="@drawable/ic_needcharge_image" />
+    </item>
+</layer-list>

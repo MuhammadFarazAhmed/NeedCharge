@@ -1,0 +1,23 @@
+<resources>
+    <string name="how_to_need_charge">How to Need Charge</string>
+    <string name="finish">Finish</string>
+    <string name="background_image">Background Image</string>
+    <string name="onboarding_image">OnBoarding Image</string>
+    <string name="onboarding_title_1">STAY CHARGED ON THE GO</string>
+    <string name="onboarding_title_2">FIND YOUR LOCAL CHARGING POINTS</string>
+    <string name="onboarding_title_3">CHECK THE INFO YOU NEED</string>
+    <string name="onboarding_title_4">SCAN THE QR CODE</string>
+    <string name="onboarding_title_5">GET CHARGED</string>
+    <string name="onboarding_description_1">Need Charge keeps your phone charged, no matter where you are</string>
+    <string name="onboarding_description_2">Choose from a large number of charging stations throughout Australia
+    </string>
+    <string name="onboarding_description_3">Before you head to a place, you can check it’s opening hours, get
+        directions, and see available amenities
+    </string>
+    <string name="onboarding_description_4">Just scan the QR code using your camera or enter it manually to get a power
+        bank and start charging your phone.
+    </string>
+    <string name="onboarding_description_5">Connect the power bank to your phone, have fun and always keep connected
+        with Need Charge
+    </string>
+</resources>

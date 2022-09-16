@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Need Charge</string>
+    <string name="retry">Retry</string>
+
+
+    <string name="large_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non pharetra tellus, vitae
+        hendrerit dui. Integer vel massa viverra, luctus sapien vel, vehicula urna. Praesent dapibus purus nec elit
+        venenatis consequat. Donec a mauris eget lacus dapibus vulputate. Donec fermentum nulla eget lacus condimentum
+        finibus. Curabitur laoreet, urna eu iaculis.
+    </string>
+    <string name="logo">logo</string>
+    <string name="close_icon">close icon</string>
+    <string name="please_wait">Please wait…</string>
+
+    <string name="email">Email</string>
+    <string name="phone">Phone</string>
+    <string name="phone_hint">+61 | E.g. 405 6777 697</string>
+    <string name="full_name">Full Name</string>
+</resources>

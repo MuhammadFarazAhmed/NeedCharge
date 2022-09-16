@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="weight_bold">700</integer>
+    <integer name="weight_regular">400</integer>
+    <integer name="weight_medium">500</integer>
+    <integer name="weight_light">200</integer>
+</resources>

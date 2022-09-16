@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="incubasys.needcharge.profileandsettings.vm.SettingsViewModel" />
+
+        <variable
+            name="callback"
+            type="incubasys.needcharge.profileandsettings.callback.SettingsViewCallback" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/auth_bg"
+        android:fitsSystemWindows="true">
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="?selectableItemBackground"
+            android:contentDescription="@string/close_icon"
+            android:onClick="@{() -> callback.onBackPressed()}"
+            android:padding="19dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back_icon" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/settings"
+            android:textColor="#FFE3E3E3"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@id/ivBack"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/ivBack" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvSettingsList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivBack"
+            tools:itemCount="4"
+            tools:listitem="@layout/settings_list_item" />
+
+        <Button
+            android:id="@+id/bSignOut"
+            style="@style/SimpleButtonOutline"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="30dp"
+            android:fontFamily="@font/sf_ui_light"
+            android:onClick="@{() -> callback.onSignOutButtonClicked()}"
+            android:padding="19dp"
+            android:paddingStart="3dp"
+            android:paddingEnd="3dp"
+            android:text="@string/signout"
+            android:textSize="15sp"
+            android:visibility="@{vm.loggedIn ? View.VISIBLE : View.GONE, default = gone}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

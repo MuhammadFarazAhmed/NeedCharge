@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable name="position" type="Integer"/>
+        <variable name="item" type="incubasys.needcharge.home.data.Menu"/>
+        <variable name="callback" type="incubasys.needcharge.base.RecyclerViewCallback"/>
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  xmlns:tools="http://schemas.android.com/tools"
+                  android:orientation="horizontal"
+                  android:layout_width="match_parent"
+                  android:paddingStart="12dp"
+                  android:paddingEnd="12dp"
+                  android:onClick="@{() -> callback.onListItemClicked(position)}"
+                  android:background="?selectableItemBackground"
+                  android:layout_height="wrap_content">
+        <ImageView
+                android:id="@+id/ivIcon"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:padding="15dp"
+                android:contentDescription="@{item.label}"
+                android:src="@{item.icon}"
+                tools:src="@drawable/ic_order"/>
+        <TextView
+                android:id="@+id/tvLabel"
+                android:layout_width="match_parent"
+                android:textColor="@color/text_label_clr_on_home_bg"
+                android:textSize="18sp"
+                tools:text="Settings"
+                android:fontFamily="@font/sf_ui_regular"
+                android:text="@{item.label}"
+                android:singleLine="true"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"/>
+    </LinearLayout>
+</layout>

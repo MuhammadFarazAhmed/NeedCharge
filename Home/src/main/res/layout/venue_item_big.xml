@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="incubasys.needcharge.base.RoundedCornersTransformation" />
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="incubasys.needcharge.home.vm.VenueItemViewModel" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="6dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/ivImage"
+            cornerType="@{RoundedCornersTransformation.CornerType.TOP}"
+            isRoundCorners="@{true}"
+            placeholderRes="@{@drawable/venue_big_image_placeholder}"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:src="@{vm.venueItem.image}"
+            tools:src="@drawable/venue_big_image_placeholder" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/venue_big_bg"
+            android:paddingBottom="16dp">
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sf_ui_medium"
+                android:paddingStart="16dp"
+                android:paddingTop="16dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="12dp"
+                android:text="@{vm.venueItem.name}"
+                android:textColor="@color/text_label_clr_on_home_bg"
+                android:textSize="18sp"
+                tools:text="Name of the Venue" />
+
+            <TextView
+                android:id="@+id/tvOpenClosed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvName"
+                android:layout_marginStart="16dp"
+                android:background="@{vm.venueItem.isOpen ? @drawable/open_bg : @drawable/close_bg}"
+                android:fontFamily="@font/sf_ui_bold"
+                android:gravity="center"
+                android:paddingStart="12dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="12dp"
+                android:paddingBottom="4dp"
+                android:text="@{vm.venueItem.isOpen ? @string/open : @string/closed}"
+                android:textAllCaps="true"
+                android:textColor="@{vm.venueItem.isOpen ? @color/open_green : @color/close_red}"
+                android:textSize="14sp"
+                tools:background="@drawable/open_bg"
+                tools:text="Open"
+                tools:textColor="@color/open_green" />
+
+            <TextView
+                android:id="@+id/tvTimings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/tvOpenClosed"
+                android:layout_alignBottom="@id/tvOpenClosed"
+                android:layout_toEndOf="@id/tvOpenClosed"
+                android:fontFamily="@font/sf_ui_regular"
+                android:gravity="center"
+                android:padding="4dp"
+                android:text="@{vm.venueItem.todayTiming}"
+                android:textColor="@color/text_label_clr_on_home_bg"
+                android:textSize="13.5sp"
+                tools:text="Until 11PM TODAY" />
+
+            <TextView
+                android:id="@+id/tvVenueType"
+                venueTypeToString="@{vm.venueItem.type}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvOpenClosed"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/sf_ui_regular"
+                android:gravity="center"
+                android:paddingStart="0dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="9dp"
+                android:paddingBottom="4dp"
+                android:textColor="@color/text_label_clr_on_home_bg"
+                android:textSize="13.5sp"
+                tools:text="Restaurant" />
+
+            <ImageView
+                android:id="@+id/ivDistance"
+                android:layout_width="11dp"
+                android:layout_height="11dp"
+                android:layout_alignTop="@id/tvVenueType"
+                android:layout_alignBottom="@id/tvVenueType"
+                android:layout_toEndOf="@id/tvVenueType"
+                android:src="@drawable/ic_current_location"
+                android:tint="@color/text_label_clr_on_home_bg" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDistance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/tvVenueType"
+                android:layout_alignBottom="@id/tvVenueType"
+                android:layout_toEndOf="@id/ivDistance"
+                android:fontFamily="@font/sf_ui_regular"
+                android:gravity="center"
+                android:padding="4dp"
+                android:text="@{@string/km_with_value(vm.venueItem.distance)}"
+                android:textColor="@color/text_label_clr_on_home_bg"
+                android:textSize="13.5sp"
+                tools:text="0.22 Km" />
+
+            <ImageView
+                android:id="@+id/ivDuration"
+                android:layout_width="15dp"
+                android:layout_height="11dp"
+                android:layout_alignTop="@id/tvVenueType"
+                android:layout_alignBottom="@id/tvVenueType"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="0dp"
+                android:layout_toEndOf="@id/tvDistance"
+                android:src="@drawable/ic_directions_run_black_24dp"
+                android:tint="@color/text_label_clr_on_home_bg"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDuration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/tvVenueType"
+                android:layout_alignBottom="@id/tvVenueType"
+                android:layout_toEndOf="@id/ivDuration"
+                android:fontFamily="@font/sf_ui_regular"
+                android:gravity="center"
+                android:padding="4dp"
+                android:text="@{@plurals/duration(((int)vm.venueItem.duration), vm.venueItem.duration)}"
+                android:textColor="@color/text_label_clr_on_home_bg"
+                android:textSize="13.5sp"
+                tools:text="5 mints" />
+
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

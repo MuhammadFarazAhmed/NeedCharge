@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<incubasys.needcharge.home.utils.DrawerContent
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutDescription="@xml/home_content_scene">
+    <fragment
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:id="@+id/content"
+            tools:layout="@layout/home_fragment"
+            android:name="incubasys.needcharge.home.ui.HomeFragment"/>
+</incubasys.needcharge.home.utils.DrawerContent>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="text_margin">16dp</dimen>
+    <dimen name="venue_small_height">160dp</dimen>
+    <dimen name="max_translate_value">200dp</dimen>
+    <dimen name="venue_margin_bottom">20dp</dimen>
+</resources>

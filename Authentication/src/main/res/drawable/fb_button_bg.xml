@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <ripple android:color="@color/black_overlay">
+            <item>
+                <shape android:shape="rectangle">
+                    <corners android:bottomLeftRadius="16dp"
+                             android:bottomRightRadius="16dp"
+                             android:topLeftRadius="8dp"
+                             android:topRightRadius="8dp"/>
+                    <solid android:color="#3245B8"/>
+                </shape>
+            </item>
+        </ripple>
+    </item>
+
+    <item android:state_focused="true">
+        <shape android:shape="rectangle" android:tint="#30000000" android:tintMode="src_over">
+            <corners android:bottomLeftRadius="16dp"
+                     android:bottomRightRadius="16dp"
+                     android:topLeftRadius="8dp"
+                     android:topRightRadius="8dp"/>
+           <solid android:color="#3245B8"/>
+        </shape>
+    </item>
+
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:bottomLeftRadius="16dp"
+                     android:bottomRightRadius="16dp"
+                     android:topLeftRadius="8dp"
+                     android:topRightRadius="8dp"/>
+            <solid android:color="#3245B8"/>
+        </shape>
+    </item>
+
+
+</selector>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:app="http://schemas.android.com/apk/res-auto">
+    <font
+            app:font="@font/sf_ui_bold"
+            app:fontStyle="normal"
+            app:fontWeight="@integer/weight_bold"/>
+
+    <font
+            app:font="@font/sf_ui_medium"
+            app:fontStyle="normal"
+            app:fontWeight="@integer/weight_medium"/>
+    <font
+            app:font="@font/sf_ui_regular"
+            app:fontStyle="normal"
+            app:fontWeight="@integer/weight_regular"/>
+
+    <font
+            app:font="@font/sf_ui_light"
+            app:fontStyle="normal"
+            app:fontWeight="@integer/weight_light"/>
+</font-family>

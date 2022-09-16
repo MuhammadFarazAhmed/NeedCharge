@@ -1,0 +1,1 @@
+include ':app', ':Home', ':Splash', ':Onboarding', ':Base', ':DataInterfaces', ':Repositories', ':Authentication', ':ProfileAndSettings'

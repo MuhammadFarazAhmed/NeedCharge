@@ -1,0 +1,68 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="place"
+            type="incubasys.needcharge.home.data.PlaceAutocomplete" />
+    </data>
+
+    <RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/place_item_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground">
+
+        <ImageView
+            android:id="@+id/ivAutoCompleteLocationImage"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:contentDescription="@string/image"
+            android:src="@drawable/ic_location_icon"
+            android:tint="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/tvAutoCompletePrimaryText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="14dp"
+            android:layout_toEndOf="@+id/ivAutoCompleteLocationImage"
+            android:fontFamily="@font/sf_ui_medium"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="@{place.primaryText}"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp"
+            tools:text="359" />
+
+        <TextView
+            android:id="@+id/tvAutoCompleteSecondaryText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvAutoCompletePrimaryText"
+            android:layout_marginEnd="16dp"
+            android:layout_toEndOf="@+id/ivAutoCompleteLocationImage"
+            android:fontFamily="@font/sf_ui_light"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="@{place.secondaryText}"
+            android:textColor="@color/colorPrimary"
+            android:textSize="14sp"
+            tools:text="Little Bourke Street,Melbourne..." />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/tvAutoCompleteSecondaryText"
+            android:layout_marginTop="16dp"
+            android:background="@color/simple_button_bg_clr_1" />
+
+    </RelativeLayout>
+
+</layout>

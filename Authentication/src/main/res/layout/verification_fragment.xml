@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="incubasys.needcharge.authentication.vm.VerificationViewModel" />
+
+        <variable
+            name="callback"
+            type="incubasys.needcharge.authentication.callback.VerificationViewCallback" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:background="@color/auth_bg">
+
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:background="?selectableItemBackground"
+            android:contentDescription="@string/close_icon"
+            android:onClick="@{() -> callback.onBackPressed()}"
+            android:padding="19dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back_icon" />
+
+        <TextView
+            android:id="@+id/tvWelcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/sf_ui_regular"
+            android:text="@string/code_verification"
+            android:textColor="@color/colorPrimary"
+            android:textSize="21sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivBack" />
+
+        <TextView
+            android:id="@+id/tvSubText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:gravity="center"
+            android:paddingStart="25dp"
+            android:paddingEnd="25dp"
+            android:fontFamily="@font/sf_ui_regular"
+            android:text="@{@string/we_have_sent_you_a_sms_with_a_code_to_the_number(vm.phoneNumber)}"
+            android:textColor="@color/colorPrimary"
+            android:textSize="17sp"
+            tools:text="@string/we_have_sent_you_a_sms_with_a_code_to_the_number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvWelcome" />
+
+        <EditText
+            android:id="@+id/etCode"
+            errorMessage="@{vm.code.error}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/edit_text_bg"
+            android:drawableStart="@drawable/ic_email_icon"
+            android:drawablePadding="9dp"
+            android:fontFamily="@font/sf_ui_light"
+            android:hint="@string/code"
+            android:imeOptions="actionDone"
+            android:inputType="number"
+            android:lines="1"
+            android:maxLines="1"
+            android:padding="15dp"
+            android:text="@={vm.code.value}"
+            android:textColor="@color/text_color_normal"
+            android:textColorHint="@color/text_color_hint"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSubText"
+            tools:ignore="TextFields" />
+
+
+        <Button
+            android:id="@+id/bResend"
+            style="@style/SimpleButtonOutline"
+            android:layout_width="0dp"
+            android:paddingStart="3dp"
+            android:paddingEnd="3dp"
+            android:layout_marginBottom="25dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="6dp"
+            android:fontFamily="@font/sf_ui_light"
+            android:text="@string/resend"
+            android:onClick="@{() -> callback.onResendButtonClicked()}"
+            app:layout_constraintEnd_toStartOf="@id/bNext"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etCode"
+            app:layout_constraintVertical_bias="1.0"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <Button
+            android:id="@+id/bNext"
+            style="@style/SimpleButton"
+            android:layout_width="0dp"
+            android:paddingStart="3dp"
+            android:paddingEnd="3dp"
+            android:enabled="@{vm.code.isValid}"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="30dp"
+            android:fontFamily="@font/sf_ui_light"
+            android:text="@string/next"
+            android:onClick="@{() -> callback.onVerifyButtonClicked()}"
+            android:layout_marginBottom="25dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etCode"
+            app:layout_constraintVertical_bias="1.0"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@id/bResend"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

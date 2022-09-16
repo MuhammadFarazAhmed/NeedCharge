@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="incubasys.needcharge.authentication.data.AuthType" />
+
+        <variable
+            name="vm"
+            type="incubasys.needcharge.authentication.vm.LoginViewModel" />
+
+        <variable
+            name="callback"
+            type="incubasys.needcharge.authentication.callback.LoginViewCallack" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="16dp"
+        android:background="@drawable/dialog_fragment_bg">
+
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="?selectableItemBackground"
+            android:contentDescription="@string/close_icon"
+            android:onClick="@{() -> callback.onBackPressed()}"
+            android:padding="19dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back_icon" />
+
+
+        <ImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="78dp"
+            android:layout_height="78dp"
+            android:layout_marginEnd="8dp"
+            android:background="?selectableItemBackground"
+            android:contentDescription="@string/logo"
+            android:tint="@color/colorWhite"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivBack"
+            app:srcCompat="@drawable/ic_logo" />
+
+
+        <TextView
+            android:id="@+id/tvWelcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:fontFamily="@font/sf_ui_regular"
+            android:text="@string/welcome_back"
+            android:textColor="@color/colorPrimary"
+            android:textSize="21sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivLogo" />
+
+        <EditText
+            android:id="@+id/etEmail"
+            errorMessage="@{vm.email.error}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/edit_text_bg"
+            android:drawableStart="@drawable/ic_email_icon"
+            android:drawablePadding="9dp"
+            android:fontFamily="@font/sf_ui_light"
+            android:hint="@string/email"
+            android:imeOptions="actionDone"
+            android:inputType="textEmailAddress"
+            android:lines="1"
+            android:maxLines="1"
+            android:padding="15dp"
+            android:text="@={vm.email.value}"
+            android:textColor="@color/text_color_normal"
+            android:textColorHint="@color/text_color_hint"
+            android:textSize="17sp"
+            android:visibility="@{vm.loginType == AuthType.EMAIL ? View.VISIBLE : View.GONE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvWelcome"
+            tools:ignore="TextFields" />
+
+        <com.santalu.maskedittext.MaskEditText
+            android:id="@+id/etPhone"
+            errorMessage="@{vm.phone.error}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/edit_text_bg"
+            android:drawableStart="@drawable/ic_phone"
+            android:drawablePadding="9dp"
+            android:fontFamily="@font/sf_ui_light"
+            android:hint="@string/phone_hint"
+            android:imeOptions="actionDone"
+            android:inputType="phone"
+            android:lines="1"
+            android:maxLines="1"
+            tools:visibility="gone"
+            android:padding="15dp"
+            android:text="@={vm.phone.value}"
+            android:textColor="@color/text_color_normal"
+            android:textColorHint="@color/text_color_hint"
+            android:textSize="17sp"
+            android:visibility="@{vm.loginType == AuthType.PHONE ? View.VISIBLE : View.GONE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvWelcome"
+            app:met_mask="+## | ### #### ###"
+            tools:ignore="TextFields" />
+
+        <EditText
+            android:id="@+id/etPassword"
+            errorMessage="@{vm.password.error}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/edit_text_bg"
+            android:drawableStart="@drawable/ic_password_icon"
+            android:drawableEnd="@drawable/ic_preview"
+            android:drawablePadding="9dp"
+            android:fontFamily="@font/sf_ui_light"
+            android:hint="@string/create_a_password"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"
+            android:lines="1"
+            android:maxLines="1"
+            android:padding="15dp"
+            android:text="@={vm.password.value}"
+            android:textColor="@color/text_color_normal"
+            android:textColorHint="@color/text_color_hint"
+            android:textSize="17sp"
+            android:visibility="@{vm.loginType == AuthType.EMAIL ? View.VISIBLE : View.GONE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etEmail"
+            tools:ignore="TextFields"
+            />
+
+        <TextView
+            android:id="@+id/tvForgotPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="25dp"
+            android:background="?selectableItemBackground"
+            android:onClick="@{() -> callback.onForgotPasswordClicked()}"
+            android:padding="10dp"
+            android:text="@string/forgot_your_password"
+            android:textColor="@color/colorPrimary"
+            android:visibility="@{vm.loginType == AuthType.EMAIL ? View.VISIBLE : View.GONE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/barrier" />
+
+        <Button
+            android:id="@+id/bLogin"
+            style="@style/SimpleButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:enabled="@{vm.form.valid}"
+            android:fontFamily="@font/sf_ui_light"
+            android:onClick="@{() -> callback.onLoginButtonClicked()}"
+            android:paddingStart="3dp"
+            android:paddingEnd="3dp"
+            android:text="@string/login"
+            app:layout_constraintEnd_toStartOf="@id/bFacebook"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvForgotPassword" />
+
+        <ImageView
+            android:id="@+id/bFacebook"
+            android:layout_width="60dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/fb_button_bg"
+            android:contentDescription="@string/facebook_button"
+            android:onClick="@{() -> callback.onLoginWithFacebookClicked()}"
+            android:padding="13dp"
+            android:src="@drawable/ic_facebook"
+            android:tint="@color/colorWhite"
+            app:layout_constraintBottom_toBottomOf="@id/bLogin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@id/bLogin"
+            app:layout_constraintTop_toTopOf="@id/bLogin" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="etPhone,etEmail,etPassword" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

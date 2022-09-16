@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="settings"
+            type="incubasys.needcharge.profileandsettings.data.Settings" />
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/rlSettingsListItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?selectableItemBackground"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@id/ivArrow"
+            android:paddingStart="21dp"
+            android:paddingEnd="21dp"
+            android:paddingTop="17dp"
+            android:paddingBottom="17dp"
+            android:text="@{settings.title}"
+            android:textAllCaps="true"
+            android:textColor="#B0FFFFFF"
+            android:textSize="13sp"
+            tools:text="ONBOARDING" />
+
+        <ImageView
+            android:id="@+id/ivArrow"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_alignTop="@id/tvTitle"
+            android:layout_alignBottom="@id/tvTitle"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="5dp"
+            android:tint="#B0FFFFFF"
+            android:rotation="180"
+            android:padding="21dp"
+            app:srcCompat="@drawable/ic_back_icon" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_below="@id/tvTitle"
+            android:background="#B0FFFFFF" />
+    </RelativeLayout>
+</layout>

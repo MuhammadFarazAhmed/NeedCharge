@@ -1,0 +1,165 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+
+android {
+    compileSdkVersion 32
+    defaultConfig {
+        applicationId "com.incubasys.needcharge"
+        minSdkVersion 21
+        targetSdkVersion 32
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+    }
+    buildTypes {
+        release {
+            buildConfigField 'String', 'API_KEY', '"3423v43vv3mn234n32nnn32nnfds32"'
+            buildConfigField 'String', 'BASE_URL', '"http://btq.com/test/api/"'
+            minifyEnabled true
+            zipAlignEnabled true
+            versionNameSuffix '-Release'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            buildConfigField 'String', 'API_KEY', '"n33dch@4b0d3c77a968b8f41c35ef3a0d2984a3"'
+            buildConfigField 'String', 'BASE_URL', '"http://134.209.253.224/needcharge_development/api/mobile/"'
+            buildConfigField 'String', 'GoolgeAPIKey', '"AIzaSyAm0jlJRbOzX6qfBUSJ9Wo3c9nqxOjoP9Y"'
+            applicationIdSuffix '.debug'
+            versionNameSuffix '-DEBUG'
+            shrinkResources false
+            /* minifyEnabled true
+             zipAlignEnabled true
+             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'*/
+        }
+    }
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            def formattedDate = new Date().format('HH-mm-dd-MMM-YYYY')
+            output.outputFileName = "NeedCharge _V${defaultConfig.versionCode}${defaultConfig.versionNameSuffix}_${formattedDate}.apk"
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kapt {
+        javacOptions {
+            // Increase the max count of errors from annotation processors.
+            // Default is 100.
+            option("-Xmaxerrs", 1000)
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+    dexOptions {
+        preDexLibraries true
+    }
+
+//    packagingOptions {
+//        exclude 'META-INF/DEPENDENCIES'
+//        exclude 'META-INF/LICENSE.txt'
+//        exclude 'META-INF/NOTICE'
+//        exclude 'META-INF/NOTICE.txt'
+//        exclude 'META-INF/notice.txt'
+//        exclude 'META-INF/ASL2.0'
+//        exclude 'META-INF/atomicfu.kotlin_module'
+//    }
+
+    packagingOptions {
+        exclude 'project.properties'
+        exclude 'META-INF/INDEX.LIST'
+        exclude 'META-INF/*.kotlin_module'
+    }
+    packagingOptions {
+        pickFirst  '**'
+    }
+
+}
+androidExtensions {
+    experimental = true
+}
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0-alpha04'
+    implementation 'androidx.core:core-ktx:1.1.0-alpha05'
+    implementation 'com.google.android.material:material:1.1.0-alpha05'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    implementation 'androidx.vectordrawable:vectordrawable:1.1.0-alpha01'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0-alpha04'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha4'
+
+    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation 'com.google.android.gms:play-services-maps:16.1.0'
+    implementation 'com.google.maps.android:android-maps-utils:0.5+'
+    implementation 'com.google.firebase:firebase-messaging:17.6.0'
+    implementation 'com.google.android.gms:play-services-location:16.0.0'
+
+    def lifecycle_version = "2.1.0-alpha04"
+    // ViewModel and LiveData
+    kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+
+    testImplementation 'junit:junit:4.13-beta-2'
+    androidTestImplementation 'androidx.test:runner:1.2.0-alpha04'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0-alpha04'
+
+    implementation 'com.google.dagger:dagger:2.22.1'
+    implementation 'com.google.dagger:dagger-android:2.22.1'
+    implementation 'com.google.dagger:dagger-android-support:2.22.1'
+    kapt "com.google.dagger:dagger-compiler:2.22.1"
+    kapt 'com.google.dagger:dagger-android-processor:2.22.1'
+
+    compileOnly 'com.github.pengrad:jdk9-deps:1.0'
+
+//    implementation "jakarta.xml.bind:jakarta.xml.bind-api:2.3.2"
+//    implementation "org.glassfish.jaxb:jaxb-runtime:2.3.2"
+
+    implementation 'javax.xml.bind:jaxb-api:2.3.1'
+
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.2.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.2.0'
+
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.google.code.gson:gson:2.8.9'
+    implementation 'com.squareup.okhttp3:okhttp:4.9.3'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.3'
+    implementation 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2'
+    implementation 'joda-time:joda-time:2.10.1'
+    implementation 'com.google.android.libraries.places:places:1.1.0'
+
+    def paging_version = "2.1.0"
+    implementation "androidx.paging:paging-runtime-ktx:$paging_version"
+
+    def work_version = "2.0.1"
+    // Kotlin + coroutines
+    implementation "androidx.work:work-runtime-ktx:$work_version"
+
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    kapt 'com.github.bumptech.glide:compiler:4.9.0'
+    implementation('com.github.bumptech.glide:okhttp3-integration:4.9.0') {
+        transitive = false
+    }
+    implementation 'com.github.bumptech.glide:annotations:4.9.0'
+    api project(':Base')
+    api project(':DataInterfaces')
+    api project(':Repositories')
+    api project(':Splash')
+    api project(':Onboarding')
+    api project(':Home')
+    api project(':Authentication')
+    api project(':ProfileAndSettings')
+}
+configurations.all {
+    resolutionStrategy.force 'com.android.support:support-v4:28.0.0'
+}

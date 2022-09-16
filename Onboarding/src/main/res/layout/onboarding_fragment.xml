@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="android.view.View"/>
+        <variable name="vm" type="incubasys.needcharge.onboarding.viewmodel.OnboardingViewModel"/>
+        <variable name="callback" type="incubasys.needcharge.onboarding.callback.OnboardingCallback"/>
+    </data>
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".onboarding.ui.OnboardingFragment">
+
+        <androidx.viewpager.widget.ViewPager
+                android:id="@+id/vpPager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        <TextView
+                android:text="@string/how_to_need_charge"
+                android:textColor="#6A6B6B"
+                android:textAllCaps="true"
+                android:textSize="14sp"
+                android:gravity="center"
+                android:layout_alignTop="@id/ivCross"
+                android:layout_alignBottom="@id/ivCross"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/sf_ui_regular"
+                android:lineSpacingMultiplier="1.21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:id="@+id/tvTitle"/>
+
+        <ImageView
+                android:id="@+id/ivCross"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:padding="16dp"
+                android:tint="#6A6B6B"
+                android:onClick="@{()->callback.onFinishButtonClicked()}"
+                app:srcCompat="@drawable/ic_close_bold"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_alignParentEnd="true"/>
+
+        <com.viewpagerindicator.CirclePageIndicator
+                android:id="@+id/cpiIndicator"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="center|top"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="75dp"
+                android:padding="10dp"
+                app:centered="true"
+                app:fillColor="#4F4F4F"
+                app:pageColor="#878792"
+                android:visibility="@{vm.showFinishButton ? View.GONE : View.VISIBLE, default = visible}"
+                app:radius="4dp"
+                app:strokeWidth="0dp"/>
+
+        <Button android:id="@+id/bFinish"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/SimpleButton"
+                android:visibility="@{vm.showFinishButton ? View.VISIBLE : View.GONE, default = gone}"
+                android:onClick="@{()->callback.onFinishButtonClicked()}"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="35dp"
+                android:layout_marginEnd="35dp"
+                android:layout_marginBottom="35dp"
+                android:text="@string/finish"
+                android:textAllCaps="true"/>
+    </RelativeLayout>
+</layout>
